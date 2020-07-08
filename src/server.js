@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const RegisterController = require('./controllers/RegisterController');
+const routes = require('./routes');
 const app = express();
 
 
@@ -15,13 +15,7 @@ if(process.env.NODE_ENV !== 'production'){  // Verificando se não estamos no am
 app.use(cors());
 app.use(express.json());
 
-
-app.get('/', (req,res) => {
-    res.send({msg: "Deu bom po"})
-});
-
-
-app.post('/register', RegisterController.store);
+app.use(routes);
 
 
 try {
