@@ -9,7 +9,9 @@ routes.get('/', (req,res) => {
 });
 
 
-routes.post('/register', UserController.store);
+routes.post('/user/register', UserController.createUser);
+routes.get('/user/:userById', UserController.getUserById);
+
 
 
 module.exports = routes;
