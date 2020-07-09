@@ -34,7 +34,7 @@ module.exports = {
     },
 
     async getUserById(req,res){
-        const {userId} = req.params;
+        const  { userId }  = req.params;
 
         try {
             const user = await User.findById(userId);
