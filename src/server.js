@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 const routes = require('./routes');
 const app = express();
 
@@ -11,7 +12,7 @@ if(process.env.NODE_ENV !== 'production'){  // Verificando se não estamos no am
     require('dotenv').config();
 }
 
-
+app.use('/files', express.static(path.resolve(__dirname, '..', 'files')));
 app.use(cors());
 app.use(express.json());
 
